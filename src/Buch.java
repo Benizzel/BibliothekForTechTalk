@@ -13,7 +13,7 @@ public class Buch {
     public void ausleihen() {
         if (!ausgeliehen) {
             ausgeliehen = true;
-            System.out.println("&#x1f4da; '" + titel + "' wurde ausgeliehen.");
+            System.out.println("📚 '" + titel + "' wurde ausgeliehen.");
         } else {
             System.out.println("❌ '" + titel + "' ist bereits ausgeliehen!");
         }
@@ -30,7 +30,7 @@ public class Buch {
     
     public void info() {
         String status = ausgeliehen ? "ausgeliehen" : "verfügbar";
-        System.out.println("&#x1f4d6; " + titel + " von " + autor + " - Status: " + status);
+        System.out.println("📖; " + titel + " von " + autor + " - Status: " + status);
     }
     
     // Getter

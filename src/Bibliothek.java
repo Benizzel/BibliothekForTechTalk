@@ -17,7 +17,7 @@ public class Bibliothek {
     }
     
     public void alleBuecherAnzeigen() {
-        System.out.println("\n&#x1f4da; === " + name + " ===");
+        System.out.println(" === " + name + " ===");
         if (buecher.isEmpty()) {
             System.out.println("Keine Bücher vorhanden.");
         } else {
@@ -49,7 +49,7 @@ public class Bibliothek {
             }
         }
         
-        System.out.println("&#x1f4ca; Statistik für " + name + ":");
+        System.out.println("Statistik für " + name + ":");
         System.out.println("   Gesamt: " + buecher.size() + " Bücher");
         System.out.println("   Verfügbar: " + verfuegbar);
         System.out.println("   Ausgeliehen: " + ausgeliehen);

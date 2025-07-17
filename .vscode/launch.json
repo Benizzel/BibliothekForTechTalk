@@ -5,6 +5,13 @@
     "version": "0.2.0",
     "configurations": [
         {
+            "type": "java",
+            "name": "MeineBibliothek",
+            "request": "launch",
+            "mainClass": "MeineBibliothek",
+            "projectName": "BibliothekForTechTalk_ca41fd46"
+        },
+        {
             "type": "jdk",
             "request": "launch",
             "name": "Launch Java App"
