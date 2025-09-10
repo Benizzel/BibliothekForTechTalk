@@ -9,6 +9,13 @@
             "name": "MeineBibliothek",
             "request": "launch",
             "mainClass": "MeineBibliothek",
+            "projectName": "BibliothekForTechTalk_b817976f"
+        },
+        {
+            "type": "java",
+            "name": "MeineBibliothek",
+            "request": "launch",
+            "mainClass": "MeineBibliothek",
             "projectName": "BibliothekForTechTalk_ca41fd46"
         },
         {

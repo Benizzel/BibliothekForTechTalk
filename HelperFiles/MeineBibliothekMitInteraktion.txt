@@ -102,14 +102,6 @@ public class MeineBibliothek {
                     
                 case 0:
                     System.out.println("👋 Auf Wiedersehen! Danke für die Nutzung des Bibliothekssystems.");
-                    
-                    // Demonstration von Methodenaufrufen zwischen Klassen
-                    System.out.println("\n🔄 === Klassen-Interaktionen Demo ===");
-                    System.out.println("Main ruft Bibliothek-Methoden auf");
-                    System.out.println("Bibliothek ruft Buch-Methoden auf");
-                    System.out.println("Main ruft auch direkt Buch-Methoden auf");
-                    System.out.println("Scanner für Benutzerinteraktion");
-                    
                     scanner.close();
                     return;
                     

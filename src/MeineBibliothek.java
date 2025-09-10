@@ -27,7 +27,7 @@ public class MeineBibliothek {
         buch1.zurueckgeben();
         
         // Buch über Bibliothek suchen (Bibliothek ruft Buch-Methoden auf)
-        System.out.println("Suche nach 'Clean Code':");
+        System.out.println("&#x1f50d; Suche nach 'Clean Code':");
         Buch gefunden = stadtbibliothek.buchSuchen("Clean Code");
         if (gefunden != null) {
             gefunden.info();
@@ -37,11 +37,5 @@ public class MeineBibliothek {
         
         System.out.println();
         stadtbibliothek.statistik();
-        
-        // Demonstration von Methodenaufrufen zwischen Klassen
-        System.out.println("=== Klassen-Interaktionen ===");
-        System.out.println("Main ruft Bibliothek-Methoden auf");
-        System.out.println("Bibliothek ruft Buch-Methoden auf");
-        System.out.println("Main ruft auch direkt Buch-Methoden auf");
     }
 }

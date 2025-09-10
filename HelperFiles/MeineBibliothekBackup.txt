@@ -37,11 +37,7 @@ public class MeineBibliothek {
         
         System.out.println();
         stadtbibliothek.statistik();
-        
-        // Demonstration von Methodenaufrufen zwischen Klassen
-        System.out.println("\n&#x1f504; === Klassen-Interaktionen ===");
-        System.out.println("Main ruft Bibliothek-Methoden auf");
-        System.out.println("Bibliothek ruft Buch-Methoden auf");
-        System.out.println("Main ruft auch direkt Buch-Methoden auf");
+      
+
     }
 }
