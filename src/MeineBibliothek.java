@@ -1,41 +1,118 @@
+import java.util.Scanner;
+
 public class MeineBibliothek {
     public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        
         // Bibliothek erstellen
         Bibliothek stadtbibliothek = new Bibliothek("Stadtbibliothek Zürich");
+        
         
         // Bücher erstellen (Buch-Objekte)
         Buch buch1 = new Buch("Java ist auch eine Insel", "Christian Ullenboom");
         Buch buch2 = new Buch("Clean Code", "Robert C. Martin");
         Buch buch3 = new Buch("Design Patterns", "Gang of Four");
         
-        // Bücher zur Bibliothek hinzufügen (Bibliothek ruft Buch-Methoden auf)
+        // Bücher zur Bibliothek hinzufügen
         stadtbibliothek.buchHinzufuegen(buch1);
         stadtbibliothek.buchHinzufuegen(buch2);
         stadtbibliothek.buchHinzufuegen(buch3);
         
-        // Alle Bücher anzeigen
-        stadtbibliothek.alleBuecherAnzeigen();
+        // Willkommensnachricht
+        System.out.println("🎉 Willkommen im Bibliothekssystem!");
         
-        // Bücher ausleihen (Main ruft Buch-Methoden auf)
-        buch1.ausleihen();
-        buch2.ausleihen();
-        
-        System.out.println();
-        stadtbibliothek.alleBuecherAnzeigen();
-        
-        // Buch zurückgeben
-        buch1.zurueckgeben();
-        
-        // Buch über Bibliothek suchen (Bibliothek ruft Buch-Methoden auf)
-        System.out.println("&#x1f50d; Suche nach 'Clean Code':");
-        Buch gefunden = stadtbibliothek.buchSuchen("Clean Code");
-        if (gefunden != null) {
-            gefunden.info();
-        } else {
-            System.out.println("Buch nicht gefunden!");
+        // Interaktives Menü
+        while (true) {
+            System.out.println("\n" + "=".repeat(40));
+            System.out.println("📚 BIBLIOTHEKS-MENÜ");
+            System.out.println("=".repeat(40));
+            System.out.println("1. 📖 Alle Bücher anzeigen");
+            System.out.println("2. 🔍 Buch suchen");
+            System.out.println("3. 📤 Buch ausleihen");
+            System.out.println("4. 📥 Buch zurückgeben");
+            System.out.println("5. ➕ Neues Buch hinzufügen");
+            System.out.println("6. 📊 Statistik anzeigen");
+            System.out.println("0. 🚪 Programm beenden");
+            System.out.println("=".repeat(40));
+            System.out.print("Ihre Wahl (0-6): ");
+            
+            int wahl;
+            try {
+                wahl = Integer.parseInt(scanner.nextLine());
+            } catch (NumberFormatException e) {
+                System.out.println("❌ Ungültige Eingabe! Bitte eine Zahl zwischen 0-6 eingeben.");
+                continue;
+            }
+            
+            switch (wahl) {
+                case 1:
+                    stadtbibliothek.alleBuecherAnzeigen();
+                    break;
+                    
+                case 2:
+                    System.out.print("🔍 Titel des gesuchten Buchs: ");
+                    String suchTitel = scanner.nextLine();
+                    Buch gefunden = stadtbibliothek.buchSuchen(suchTitel);
+                    if (gefunden != null) {
+                        System.out.println("✅ Buch gefunden:");
+                        gefunden.info();
+                    } else {
+                        System.out.println("❌ Buch '" + suchTitel + "' nicht gefunden!");
+                    }
+                    break;
+                    
+                case 3:
+                    System.out.print("📤 Titel des auszuleihenden Buchs: ");
+                    String ausleihTitel = scanner.nextLine();
+                    Buch ausleihBuch = stadtbibliothek.buchSuchen(ausleihTitel);
+                    if (ausleihBuch != null) {
+                        ausleihBuch.ausleihen();
+                    } else {
+                        System.out.println("❌ Buch '" + ausleihTitel + "' nicht gefunden!");
+                    }
+                    break;
+                    
+                case 4:
+                    System.out.print("📥 Titel des zurückzugebenden Buchs: ");
+                    String rueckgabeTitel = scanner.nextLine();
+                    Buch rueckgabeBuch = stadtbibliothek.buchSuchen(rueckgabeTitel);
+                    if (rueckgabeBuch != null) {
+                        rueckgabeBuch.zurueckgeben();
+                    } else {
+                        System.out.println("❌ Buch '" + rueckgabeTitel + "' nicht gefunden!");
+                    }
+                    break;
+                    
+                case 5:
+                    System.out.print("➕ Titel des neuen Buchs: ");
+                    String neuerTitel = scanner.nextLine();
+                    System.out.print("✍️ Autor des neuen Buchs: ");
+                    String neuerAutor = scanner.nextLine();
+                    
+                    if (!neuerTitel.trim().isEmpty() && !neuerAutor.trim().isEmpty()) {
+                        Buch neuesBuch = new Buch(neuerTitel, neuerAutor);
+                        stadtbibliothek.buchHinzufuegen(neuesBuch);
+                    } else {
+                        System.out.println("❌ Titel und Autor dürfen nicht leer sein!");
+                    }
+                    break;
+                    
+                case 6:
+                    stadtbibliothek.statistik();
+                    break;
+                    
+                case 0:
+                    System.out.println("👋 Auf Wiedersehen! Danke für die Nutzung des Bibliothekssystems.");
+                    scanner.close();
+                    return;
+                    
+                default:
+                    System.out.println("❌ Ungültige Wahl! Bitte eine Zahl zwischen 0-6 eingeben.");
+            }
+            
+            // Pause für bessere Lesbarkeit
+            System.out.println("\n⏸️ Drücken Sie Enter zum Fortfahren...");
+            scanner.nextLine();
         }
-        
-        System.out.println();
-        stadtbibliothek.statistik();
     }
 }
